@@ -1,0 +1,32 @@
+package practice;
+
+
+class BinarySearch{
+	int get(int arr[],int find) {
+		int left=0;
+		int right=arr.length-1;
+		int mid;
+		while(left<=right) {
+			mid=(left+right)/2;
+			if(arr[mid]==find) {
+				return mid;
+			}
+			else if(arr[mid]>find)
+				right=mid-1;
+			else
+				left=mid+1;
+				
+				
+		}
+		return 0;
+	}
+}
+
+public class SecondUnit {
+    public static void main(String args[]) {
+    	int[] arr= {99,28,90,4,78};
+    	BinarySearch finder=new BinarySearch();
+    	int c=finder.get(arr,90);
+    	System.out.print(c);
+    }
+}
