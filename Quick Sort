@@ -1,0 +1,56 @@
+class QuickSort {
+
+    void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    int partition(int[] arr, int low, int high) {
+        int pivot = arr[low];
+        int i = low + 1;
+        int j = high;
+
+        while (i <= j) {
+
+            while (i <= high && arr[i] <= pivot) {
+                i++;
+            }
+
+            while (arr[j] > pivot) {
+                j--;
+            }
+
+            if (i < j) {
+                swap(arr, i, j);
+            }
+        }
+
+        swap(arr, low, j);
+        return j;
+    }
+}
+
+public class NewSort {
+
+    QuickSort qs = new QuickSort();
+
+    void quicksort(int[] arr, int low, int high) {
+        if (low < high) {
+            int pivot = qs.partition(arr, low, high);
+            quicksort(arr, low, pivot - 1);
+            quicksort(arr, pivot + 1, high);
+        }
+    }
+
+    public static void main(String args[]) {
+
+        int[] arr = {5, 3, 7, 4, 0, 1, 2, 6, 8};
+
+        NewSort ns = new NewSort();
+        ns.quicksort(arr, 0, arr.length - 1);
+
+        for (int i = 0; i < arr.length; i++)
+            System.out.print(arr[i] + " ");
+    }
+}
