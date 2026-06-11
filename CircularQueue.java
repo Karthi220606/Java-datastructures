@@ -65,7 +65,7 @@ class Circular {
     }
 }
 
-public class Main {
+public class CircularQueue {
 
 	public static void main(String[] args) {
 		Circular c=new Circular(5);
