@@ -35,7 +35,7 @@ class GraphDFS {
     }
 }
 
-public class DFSMain {
+public class DepthFirstSearch{
     public static void main(String args[]) {
         GraphDFS graph = new GraphDFS(5);
 
