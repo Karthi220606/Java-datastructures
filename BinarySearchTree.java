@@ -53,7 +53,7 @@ class BinaryInsertion {
     }
 }
 
-public class Bst {
+public class BinarySearchTree {
     public static void main(String args[]) {
         BinaryInsertion bb = new BinaryInsertion(5);
 
