@@ -40,7 +40,7 @@ class GraphBFS {
     }
 }
 
-public class BFSMain {
+public class BreadthFirstSearch {
     public static void main(String args[]) {
         GraphBFS graph = new GraphBFS(5);
 
