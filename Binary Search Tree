@@ -1,0 +1,73 @@
+package binary;
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    Node(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+class BinaryInsertion {
+    Node root;
+
+    BinaryInsertion(int val) {
+        root = new Node(val);
+    }
+
+    Node insert(Node root, int val) {
+        if (root == null)
+            return new Node(val);
+
+        if (val < root.data)
+            root.left = insert(root.left, val);
+        else
+            root.right = insert(root.right, val);
+
+        return root;
+    }
+
+    void traverse(Node root) {
+        if (root != null) {
+            traverse(root.left);
+            System.out.print(root.data + "\t");
+            traverse(root.right);
+        }
+    }
+
+    boolean search(Node root, int val) {
+        if (root == null)
+            return false;
+
+        if (root.data == val)
+            return true;
+
+        if (val < root.data)
+            return search(root.left, val);
+
+        return search(root.right, val);
+    }
+}
+
+public class Bst {
+    public static void main(String args[]) {
+        BinaryInsertion bb = new BinaryInsertion(5);
+
+        bb.root = bb.insert(bb.root, 4);
+        bb.root = bb.insert(bb.root, 6);
+        bb.root = bb.insert(bb.root, 2);
+        bb.root = bb.insert(bb.root, 8);
+
+        bb.traverse(bb.root);
+
+        if (bb.search(bb.root, 4)) {
+            System.out.print("\nfound");
+        } else {
+            System.out.print("\nNot found");
+        }
+    }
+}
