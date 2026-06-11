@@ -1,0 +1,83 @@
+class Circular {
+    int[] queue;
+    int size;
+    int rear, front;
+
+    Circular(int n) {
+        size = n;
+        queue = new int[n];
+        front = -1;
+        rear = -1;
+    }
+
+    boolean isFull() {
+        return (rear + 1) % size == front;
+    }
+
+    boolean isEmpty() {
+        return front == -1;
+    }
+
+    void enqueue(int value) {
+        if (isFull()) {
+            System.out.println("Queue is Full");
+            return;
+        }
+
+        if (isEmpty()) {
+            front = 0;
+            rear = 0;
+        } else {
+            rear = (rear + 1) % size;
+        }
+         System.out.println("In position "+rear+" inserted "+value);
+        queue[rear] = value;
+    }
+
+    void dequeue() {
+        if (isEmpty()) {
+            System.out.println("Queue is Empty");
+            return;
+        }
+
+        System.out.println("Removed Element: " + queue[front]);
+
+        if (front == rear) {
+            front = rear = -1; 
+        } else {
+            front = (front + 1) % size;
+        }
+    }
+
+    void display() {
+        if (isEmpty()) {
+            System.out.println("Queue is Empty");
+            return;
+        }
+
+        int i = front;
+        while (true) {
+            System.out.print(queue[i] + " ");
+            if (i == rear) break;
+            i = (i + 1) % size;
+        }
+        System.out.println();
+    }
+}
+
+public class Main {
+
+	public static void main(String[] args) {
+		Circular c=new Circular(5);
+		c.enqueue(1);
+		c.enqueue(2);
+		c.enqueue(3);
+		c.enqueue(4);
+		c.enqueue(5);
+		c.dequeue();
+		c.dequeue();
+		c.enqueue(5);
+		c.display();
+	}
+
+}
