@@ -1,7 +1,7 @@
 package practice;
 
 
-class BinarySearch{
+class Search{
 	int get(int arr[],int find) {
 		int left=0;
 		int right=arr.length-1;
@@ -22,10 +22,10 @@ class BinarySearch{
 	}
 }
 
-public class SecondUnit {
+public class BinarySearch{
     public static void main(String args[]) {
     	int[] arr= {99,28,90,4,78};
-    	BinarySearch finder=new BinarySearch();
+    	Search finder=new Search();
     	int c=finder.get(arr,90);
     	System.out.print(c);
     }
