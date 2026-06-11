@@ -1,0 +1,163 @@
+class Main{
+public static void main(String args[]) {
+    	int[]  a= {1,2,3,4,5,6,5,5};
+    	int sum=0;
+    	int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+    	for(int i=0;i<a.length;i++)
+    		sum+=a[i];
+    	System.out.println("Sum : "+sum);
+    	System.out.println("Average :"+(double)sum/a.length);
+    	for(int i=0;i<a.length;i++) {
+    		min=Math.min(min, a[i]);
+    		max=Math.max(max, a[i]);
+    	}
+    	System.out.println("Smallest element :"+min+"\nLargest Element :"+max );
+    	int oddcount=0,evencount=0,positivecount=0,ncount=0;
+    	for(int i=0;i<a.length;i++) {
+    		if (a[i]%2==0)
+    			evencount++;
+    		else
+    			 oddcount++;
+    		if(a[i]>=0)
+    			 positivecount++;
+    		else
+    			ncount++;
+    	}
+    	System.out.println("Odd Count :"+oddcount+"\nEven count"+evencount+"\nPositive count :"+positivecount+"\nNegative Count :"+ncount);
+    	
+    	int el=4,index=-1;
+    	for(int i=0;i<a.length;i++) {
+    		if(a[i]==el)
+    			index=i;
+    	}
+    	if(index!=-1)
+    		System.out.println("Element fount at index :"+index );
+    	else
+    		System.out.println("Not found");
+    	
+    	
+    	int fmax=a[0];
+    	int fmin=a[0];
+    	int smax=-1;
+    	int smin=a[0];
+    	
+    	for(int i=0;i<a.length;i++) {
+    		if(fmax<a[i]) {
+    			smax=max;
+    			max=a[i];
+    		}
+    		else if(smax<a[i] && a[i] !=fmax)
+    			smax=a[i];
+    		
+    		if(fmin>a[i]) {
+    			smin=fmin;
+    			fmin=a[i];
+    		}
+    		else if(smin>a[i] && a[i] !=fmin)
+    			smin=a[i];
+    	}
+    	System.out.println("Second Largest Element :"+smax+"\nSecond Smallest Element: "+smin);
+    	
+    	int left=0,right=a.length-1;
+    	while(left <right) {
+    		int temp=a[left];
+    		a[left++]=a[right];
+    		a[right--]=temp;
+    	}
+    	System.out.print("Reversed Array :");
+    	for(int i=0;i<a.length;i++) {
+    		System.out.print(a[i]+" ");
+    	}
+    	
+    	System.out.println();
+    	fmax=a[0];
+    	fmin=a[0];
+    	smax=-1;
+    	smin=a[0];
+    	int tmax=-1;
+    	int tmin=99999;
+    	for(int i=0;i<a.length;i++) {
+    		if(fmax<a[i]) {
+    			tmax=smax;
+    			smax=max;
+    			max=a[i];
+    		}
+    		else if(smax<a[i] && a[i] !=fmax) {
+    			tmax=smax;
+    			smax=a[i];
+    			
+    		}
+    		
+    		else if(tmax <a[i] && a[i]!=smax && a[i]!=fmax)
+    			 tmax=a[i];
+    		
+    		if(fmin>a[i]) {
+    			tmin=smin;
+    			smin=fmin;
+    			fmin=a[i];
+    		}
+    		else if(smin>a[i] && a[i] !=fmin) {
+    			tmin=smin;
+    			smin=a[i];
+    		}
+    		
+    		else if(tmin >a[i] && a[i]!=fmin && a[i]!=smin)
+    			tmin=a[i];
+    	}
+    	System.out.println("Third Largest Element :"+tmax+"\nThird Smallest Element: "+tmin);
+    	
+    	int pos=2,element=8;
+    	a[pos]=element;
+    	
+    	int[] b=new int[a.length-1];
+    	int inde=0;
+    	for(int i=0;i<a.length;i++) {
+    		if(i !=pos)
+    			b[inde++]=a[i];
+    	}
+    	a=b;
+    	System.out.print("After Deletion :");
+    	for(int i=0;i<a.length;i++) {
+    		System.out.print(a[i]+" ");
+    	}
+    	
+    	System.out.println();
+    	int fe=0,c=0;;
+    	for(int i=0;i<a.length;i++) {
+    		int count=1;
+    		for(int j=i+1;j<a.length;j++) {
+    			if(a[i]==a[j])
+    				count++;
+    		}
+    		if(c<count) {
+    			c=count;
+    			fe=a[i];
+    		}
+    	}
+    	System.out.println("Frequent element :"+fe);
+    	
+    	
+    	int[] odd=new int[a.length];
+    	int[] even=new int[a.length];
+    	int oddindex=0,evenindex=0;
+    	
+    	for(int i=0;i<a.length;i++) {
+    		if(a[i]%2==0)
+    			even[evenindex++]=a[i];
+    		else
+    			odd[oddindex++]=a[i];
+    	}
+    		
+    	System.out.print("Odd Array :");
+    	for(int i=0;i<odd.length;i++) {
+    		if(odd[i]!=0)
+    		  System.out.print(odd[i]+" ");
+    	}
+    	System.out.println();
+    	System.out.print("Even Array :");
+    	for(int i=0;i<even.length;i++) {
+    		if(even[i]!=0)
+    		 System.out.print(even[i]+" ");
+    	} 
+    }
+}
