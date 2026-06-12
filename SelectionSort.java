@@ -19,7 +19,7 @@ class Sorting {
     }
 }
 
-public class Main {
+public class SelectionSort{
     public static void main(String args[]) {
         int[] arr = {-1, 1, 0, 2, 3, 4, 5, 1, -5, -2};
 
