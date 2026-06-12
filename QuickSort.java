@@ -1,4 +1,4 @@
-class QuickSort {
+class Q {
 
     void swap(int[] arr, int i, int j) {
         int temp = arr[i];
@@ -8,12 +8,12 @@ class QuickSort {
 
     int partition(int[] arr, int low, int high) {
         int pivot = arr[low];
-        int i = low + 1;
+        int i = low;
         int j = high;
 
-        while (i <= j) {
+        while (true) {
 
-            while (i <= high && arr[i] <= pivot) {
+            while (arr[i] < pivot) {
                 i++;
             }
 
@@ -21,24 +21,24 @@ class QuickSort {
                 j--;
             }
 
-            if (i < j) {
-                swap(arr, i, j);
+            if (i >= j) {
+                return j;
             }
-        }
 
-        swap(arr, low, j);
-        return j;
+            swap(arr, i, j);
+            i++;
+            j--;
+        }
     }
 }
+public class QuickSort {
 
-public class NewSort {
-
-    QuickSort qs = new QuickSort();
+    Q qs = new Q();
 
     void quicksort(int[] arr, int low, int high) {
         if (low < high) {
             int pivot = qs.partition(arr, low, high);
-            quicksort(arr, low, pivot - 1);
+            quicksort(arr, low, pivot);
             quicksort(arr, pivot + 1, high);
         }
     }
@@ -47,7 +47,7 @@ public class NewSort {
 
         int[] arr = {5, 3, 7, 4, 0, 1, 2, 6, 8};
 
-        NewSort ns = new NewSort();
+        QuickSort ns = new QuickSort();
         ns.quicksort(arr, 0, arr.length - 1);
 
         for (int i = 0; i < arr.length; i++)
