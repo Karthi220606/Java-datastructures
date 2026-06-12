@@ -27,7 +27,7 @@ class LongestSubstring {
     }
 }
 
-public class Main {
+public class LongestSubstringWithoutRepeatingCharacters{
     public static void main(String[] args) {
 
         String str = "abbccaabbcc";
